@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.com/CFCAdminServise/core.svg?branch=travis)](https://travis-ci.com/CFCAdminServise/core)
