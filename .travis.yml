@@ -16,5 +16,6 @@ script:
 deploy:
   provider: script
   script: ./vendor/bin/dep deploy prod
+  skip_cleanup: true
   on:
     branch: main
