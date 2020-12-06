@@ -15,6 +15,6 @@ script:
 
 deploy:
   provider: script
-  script: ./vendor/bin/dep deploy prod
+  script: bash deploy.sh
   on:
     branch: main
