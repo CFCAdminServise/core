@@ -7,14 +7,14 @@ require 'recipe/symfony4.php';
 set(
     'bin/php',
     function () {
-        return '/usr/local/php74/bin/php';
+        return '/opt/cpanel/ea-php74/root/usr/bin/php';
     }
 );
 
 set(
     'bin/composer',
     function () {
-        return '{{bin/php}} /home/cfcadmin/composer.phar';
+        return '{{bin/php}} /home/c76434/composer.phar';
     }
 );
 
@@ -36,11 +36,12 @@ add('shared_files', ['.env']);
 
 
 // Hosts
-host('cfcadmin.ftp.tools')
+host('77.120.107.185')
+    ->port(20022)
     ->stage('prod')
     ->set('branch', 'main')
-    ->user('cfcadmin')
-    ->set('deploy_path', '~/cfc-admin.org.ua/www');
+    ->user('c76434')
+    ->set('deploy_path', '~/public_html/cfc-admin.site');
 
 // Tasks
 
