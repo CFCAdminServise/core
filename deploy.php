@@ -7,7 +7,7 @@ require 'recipe/symfony4.php';
 set(
     'bin/php',
     function () {
-        return '/opt/cpanel/ea-php74/root/usr/bin/php';
+        return '/opt/cpanel/ea-php74/root/usr/bin/php -c /home/c76434/php.ini';
     }
 );
 
