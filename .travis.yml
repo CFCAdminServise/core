@@ -18,7 +18,7 @@ before_deploy:
 
 deploy:
   provider: script
-  script: ./vendor/bin/dep deploy prod -vvv
+  script: ./vendor/bin/dep deploy prod -n -vvv
   skip_cleanup: true
   on:
     branch: main
