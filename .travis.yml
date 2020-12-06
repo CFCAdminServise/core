@@ -15,6 +15,6 @@ script:
 
 deploy:
   provider: script
-  script: echo "hello script"
+  script: ./vendor/bin/dep deploy prod
   on:
     branch: main

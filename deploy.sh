@@ -1,1 +1,0 @@
-php vendor/bin/dep deploy prod
