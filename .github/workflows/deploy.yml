@@ -1,0 +1,33 @@
+name: Deploy
+
+# Run this workflow every time a new commit pushed to your repository
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+
+jobs:
+  # Set the job key. The key is displayed as the job name
+  # when a job name is not provided
+  deploy:
+    # Name the Job
+    name: deploy
+    # Set the type of machine to run on
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd ~/public_html/cfc-admin.site
+            git pull
+            /opt/cpanel/ea-php74/root/usr/bin/php -c /home/c76434/php.ini /home/c76434/composer.phar install --verbose --prefer-dist --no-progress --no-interaction --no-dev --optimize-autoloader --no-suggest
+            /opt/cpanel/ea-php74/root/usr/bin/php -c /home/c76434/php.ini bin/console cache:clear --no-interaction --no-warmup
+            /opt/cpanel/ea-php74/root/usr/bin/php -c /home/c76434/php.ini bin/console cache:warmup --no-interaction
