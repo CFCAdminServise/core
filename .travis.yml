@@ -3,23 +3,12 @@ language: php
 php:
   - 7.4
 
-#before_install:
-#  - cp .env.example .env
-#
-#install:
-#  - composer self-update
-#  - composer install --no-interaction
-#
-script:
-  - /sbin/ifconfig
-  - curl ifconfig.me
+before_install:
+  - cp .env.example .env
 
-#before_deploy:
-#  - /sbin/ifconfig
-#
-#deploy:
-#  provider: script
-#  script: ./vendor/bin/dep deploy prod -vvv
-#  skip_cleanup: true
-#  on:
-#    branch: main
+install:
+  - composer self-update
+  - composer install --no-interaction
+
+script:
+  - ./bin/phpunit
