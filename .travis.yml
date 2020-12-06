@@ -13,6 +13,9 @@ install:
 script:
   - ./bin/phpunit
 
+before_deploy:
+  - /sbin/ifconfig
+
 deploy:
   provider: script
   script: ./vendor/bin/dep deploy prod -vvv
