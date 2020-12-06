@@ -12,3 +12,13 @@ install:
 
 script:
   - ./bin/phpunit
+
+before_deploy:
+  - echo "$MY_ID_RSA" > ~/id_rsa.pub
+
+deploy:
+  provider: script
+  script: ./vendor/bin/dep deploy prod -vvv
+  skip_cleanup: true
+  on:
+    branch: main

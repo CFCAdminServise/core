@@ -39,6 +39,7 @@ add('shared_files', ['.env']);
 host('77.120.107.185')
     ->port(20022)
     ->stage('prod')
+    ->identityFile('~/id_rsa.pub')
     ->set('branch', 'main')
     ->user('c76434')
     ->set('deploy_path', '~/public_html/cfc-admin.site');
