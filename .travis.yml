@@ -17,7 +17,7 @@ addons:
   ssh_known_hosts: 77.120.107.185:20022
 
 before_deploy:
-  - echo "$MY_ID_RSA" > ~/id_rsa.pub
+  - echo -e "$MY_ID_RSA" > ~/id_rsa.pub
   - cat ~/id_rsa.pub
 
 deploy:
