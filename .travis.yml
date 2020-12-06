@@ -12,3 +12,9 @@ install:
 
 script:
   - ./bin/phpunit
+
+deploy:
+  provider: script
+  script: ./vendor/bin/dep deploy prod
+  on:
+    branch: main
